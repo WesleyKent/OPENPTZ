@@ -28,6 +28,8 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3
+
       - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
 
       - name: Install Android native toolchain
@@ -41,7 +43,7 @@ jobs:
         run: ./gradlew --no-daemon --no-configuration-cache :app:testDebugUnitTest :app:assembleDebug
 
       - name: Upload debug APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: OPENPTZ-debug
           path: Apps/Android/app/build/outputs/apk/debug/app-debug.apk
